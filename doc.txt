@@ -1,3 +1,12 @@
 mkdir rails5-sidekiq
 cd rails5-sidekiq
 touch Dockerfile docker-compose.yml Gemfile Gemfile.lock entrypoint.sh doc.txt
+
+# doc: https://dev.to/itnext/setting-up-ruby-on-rails-with-docker-and-mysql-3mpc
+# doc: https://docs.docker.com/samples/rails/
+# Run first time
+# docker-compose run app rails new . --force --database=mysql --skip-bundle
+
+
+# netowrk changes issue
+docker network prune

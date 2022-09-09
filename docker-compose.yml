@@ -11,3 +11,20 @@ services:
     volumes:
       - mysql_db:/var/lib/mysql
     env_file: .db.env
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+
+  app:
+    build: .
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes: 
+      - ".:/app"
+    ports: 
+      - "3001:3000"
+    depends_on:
+      - db
+      - redis
