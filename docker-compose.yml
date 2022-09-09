@@ -19,7 +19,6 @@ services:
 
   app:
     build: .
-    build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     env_file: .app.env
     volumes: 
@@ -29,3 +28,14 @@ services:
     depends_on:
       - db
       - redis
+
+  workers:
+    build: .
+    command: bundle exec sidekiq -e development -C config/sidekiq.yml
+    env_file: .app.env
+    volumes:
+      - ".:/app"
+    depends_on:
+      - db
+      - redis
+    
