@@ -10,3 +10,10 @@ touch Dockerfile docker-compose.yml Gemfile Gemfile.lock entrypoint.sh doc.txt
 
 # netowrk changes issue
 docker network prune
+
+
+docker compose exec -it app rails c
+
+docker compose exec -it app rails db:create
+
+docker compose exec -it app bash 
