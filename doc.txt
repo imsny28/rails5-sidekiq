@@ -1,0 +1,3 @@
+mkdir rails5-sidekiq
+cd rails5-sidekiq
+touch Dockerfile docker-compose.yml Gemfile Gemfile.lock entrypoint.sh doc.txt
